@@ -1,6 +1,7 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { Component, Input,  ViewChild, ElementRef } from '@angular/core';
+import { NavController, ModalController, Platform, NavParams, ViewController } from 'ionic-angular';
 import { Geolocation } from 'ionic-native';
+import {ModalContentPage} from './modal-detail.component';
 
 declare var google;
 
@@ -13,17 +14,26 @@ export class HomePage {
 
   @ViewChild('map') mapElement: ElementRef;
   map: any;
+  monsters: any;
 
-  constructor(public navCtrl: NavController) {
-    
-  }
+  constructor(public modalCtrl: ModalController) { }
 
   ionViewDidLoad() {
     this.loadMap();
   }
 
+  openModal(monsterId) {
+   
+    console.log('in openModal, attempting to create modal for monsterId: ')
+    console.log(monsterId);
+
+    let modal = this.modalCtrl.create(ModalContentPage, {monsterId: monsterId});
+    modal.present();
+  }
+
   loadMap() {
   
+    // sample test data
     let monsters = [
       {
         id: 1,
@@ -50,6 +60,8 @@ export class HomePage {
         lng: -91.523265
       }
     ];
+
+    this.monsters = monsters;
 
     Geolocation.getCurrentPosition().then((position) => {
 
@@ -84,8 +96,9 @@ export class HomePage {
         let content = "<div>" + monsters[mon].name + " (Lvl: " + monsters[mon].difficulty + ") </div>";
         this.addInfoWindow(monster_marker, content);
 
+        let self = this;
         monster_marker.addListener('click', function() {
-          this.catchMonster(monster_marker.monster_idx);  
+          self.catchMonster(monster_marker.monster_idx);  
         })
 
       }
@@ -97,9 +110,7 @@ export class HomePage {
   }
 
   catchMonster(monster_idx) {
-    let monster = monsters[monster_idx];
-
-    
+    this.openModal(monster_idx); 
   }
 
   addMarker() {
