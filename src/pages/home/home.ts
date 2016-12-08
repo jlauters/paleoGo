@@ -1,7 +1,8 @@
 import { Component, Input,  ViewChild, ElementRef } from '@angular/core';
 import { NavController, ModalController, Platform, NavParams, ViewController } from 'ionic-angular';
 import { Geolocation } from 'ionic-native';
-import {ModalContentPage} from './modal-detail.component';
+import { ModalContentPage } from './modal-detail.component';
+import { ModalBugBox } from './modal-bugbox.component';
 
 declare var google;
 
@@ -24,11 +25,13 @@ export class HomePage {
 
   openModal(monsterId) {
    
-    console.log('in openModal, attempting to create modal for monsterId: ')
-    console.log(monsterId);
-
-    let modal = this.modalCtrl.create(ModalContentPage, {monsterId: monsterId});
-    modal.present();
+    if('bug_box' == monsterId) {
+      let modal = this.modalCtrl.create(ModalBugBox); 
+      modal.present();
+    } else {
+      let modal = this.modalCtrl.create(ModalContentPage, {monsterId: monsterId});
+      modal.present();
+    }
   }
 
   loadMap() {
@@ -113,17 +116,8 @@ export class HomePage {
     this.openModal(monster_idx); 
   }
 
-  addMarker() {
- 
-    let marker = new google.maps.Marker({
-      map: this.map,
-      animation: google.maps.Animation.Drop,
-      position: this.map.getCenter()
-    });
-
-    let content = "<h4>PaleoMon</h4>";
-
-    this.addInfoWindow(marker, content);
+  bugBox() {
+    this.openModal('bug_box');
   }
 
   addInfoWindow(marker, content) {

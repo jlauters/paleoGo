@@ -6,7 +6,7 @@ import { NavController, ModalController, Platform, NavParams, ViewController } f
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Catch: {{monster.name}}
+     Bug Box 
     </ion-title>
     <ion-buttons end>
       <button ion-button (click)="dismiss()"><ion-icon name="close"></ion-icon><span class="btn-text">Cancel</span></button>
@@ -15,21 +15,87 @@ import { NavController, ModalController, Platform, NavParams, ViewController } f
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col width-25>
+        <ion-icon name="bug"></ion-icon>
+        <h2> ??? </h2>
+      </ion-col>
+
+      <ion-col width-25>
+        <ion-icon name="bug"></ion-icon>
+        <h2> ??? </h2>
+      </ion-col>
+
+      <ion-col width-25>
+        <ion-icon name="bug"></ion-icon>
+        <h2> ??? </h2>
+      </ion-col>
+
+      <ion-col width-25>
+        <ion-icon name="bug"></ion-icon>
+        <h2> ??? </h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col width-25>
+        <ion-icon name="bug"></ion-icon>
+        <h2> ??? </h2>
+      </ion-col>
+
+      <ion-col width-25>
+        <ion-icon name="bug"></ion-icon>
+        <h2> ??? </h2>
+      </ion-col>
+
+      <ion-col width-25>
+        <ion-icon name="bug"></ion-icon>
+        <h2> ??? </h2>
+      </ion-col>
+
+      <ion-col width-25>
+        <ion-icon name="bug"></ion-icon>
+        <h2> ??? </h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col width-25>
+        <ion-icon name="bug"></ion-icon>
+        <h2> ??? </h2>
+      </ion-col>
+
+      <ion-col width-25>
+        <ion-icon name="bug"></ion-icon>
+        <h2> ??? </h2>
+      </ion-col>
+
+      <ion-col width-25>
+        <ion-icon name="bug"></ion-icon>
+        <h2> ??? </h2>
+      </ion-col>
+
+      <ion-col width-25>
+        <ion-icon name="bug"></ion-icon>
+        <h2> ??? </h2>
+      </ion-col>
+    </ion-row>
+
+    <!--<ion-item>
       <ion-avatar item-left>
         <img src="{{monster.icon}}">
       </ion-avatar>
       <h2>{{monster.name}}</h2>
       <p>{{monster.difficulty}}</p>
-    </ion-item>
-  </ion-list>
+    </ion-item>-->
+  </ion-grid>
 </ion-content>
 `
 })
 
-export class ModalContentPage {
-  monster: any;
+export class ModalBugBox {
+  monsters: any;
 
   constructor(
     public platform: Platform,
@@ -64,7 +130,7 @@ export class ModalContentPage {
       }
     ];
 
-    this.monster = monsters[this.params.get('monsterId')];
+    this.monsters = monsters;
   }
 
   dismiss() {

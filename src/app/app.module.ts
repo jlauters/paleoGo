@@ -3,12 +3,14 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ModalContentPage } from '../pages/home/modal-detail.component';
+import { ModalBugBox } from '../pages/home/modal-bugbox.component';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ModalContentPage
+    ModalContentPage,
+    ModalBugBox
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -17,7 +19,8 @@ import { ModalContentPage } from '../pages/home/modal-detail.component';
   entryComponents: [
     MyApp,
     HomePage,
-    ModalContentPage
+    ModalContentPage,
+    ModalBugBox
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
