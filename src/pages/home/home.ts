@@ -1,7 +1,7 @@
 import { Component, Input,  ViewChild, ElementRef } from '@angular/core';
 import { NavController, ModalController, Platform, NavParams, ViewController, LoadingController } from 'ionic-angular';
 import { Geolocation } from 'ionic-native';
-import { Monster } from './monsters';
+import { MonsterService } from './monsters.service';
 import { ModalContentPage } from './modal-detail.component';
 import { ModalBugBox } from './modal-bugbox.component';
 
@@ -9,7 +9,8 @@ declare var google;
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
+  providers: [MonsterService]
 })
 
 export class HomePage {
@@ -18,7 +19,7 @@ export class HomePage {
   map: any;
   monsters: any;
 
-  constructor(public modalCtrl: ModalController, public loadingCtrl: LoadingController) { }
+  constructor(public modalCtrl: ModalController, public loadingCtrl: LoadingController, private monsterService: MonsterService) { }
 
   ionViewDidLoad() {
     this.loadMap();
@@ -48,39 +49,7 @@ export class HomePage {
   
     // loading msg
     this.presentLoading();
-
-    // sample test data
-    let monsters: Monster[] = [
-      {
-        id: 1,
-        name: 'Chironomid',
-        icon: 'http://phylopic.org/assets/images/submissions/834f9ef5-c5bf-4e9e-94c8-3ecb8fb14838.64.png',
-        difficulty: 1,
-        lat: 41.654085,
-        lng: -91.525087,
-        found: false
-      },
-      {
-        id: 2,
-        name: 'Hymenoptera',
-        icon: 'http://phylopic.org/assets/images/submissions/e3fde32c-34c2-4f67-8577-e546909f83e8.64.png',
-        difficulty: 3,
-        lat: 41.654145,
-        lng: -91.522978,
-        found: false
-      },
-      {
-        id: 3,
-        name: 'Coleoptera',
-        icon: 'http://phylopic.org/assets/images/submissions/becb252d-fd39-4124-97c8-208aa5d448db.64.png',
-        difficulty: 2,
-        lat: 41.654100,
-        lng: -91.523265,
-        found: false
-      }
-    ];
-
-    this.monsters = monsters;
+    this.monsters = this.monsterService.getMonsters();
 
     Geolocation.getCurrentPosition().then((position) => {
 
@@ -101,18 +70,18 @@ export class HomePage {
         position: latLng
       });   
 
-      for(let mon = 0; mon < monsters.length;  mon++) {
+      for(let mon = 0; mon < this.monsters.length;  mon++) {
 
-        let mon_latLng = new google.maps.LatLng(monsters[mon].lat, monsters[mon].lng);
+        let mon_latLng = new google.maps.LatLng(this.monsters[mon].lat, this.monsters[mon].lng);
 
         let monster_marker = new google.maps.Marker({
           map: this.map,
           position: mon_latLng,
           monster_idx: mon,
-          icon: monsters[mon].icon
+          icon: this.monsters[mon].icon
         });
 
-        let content = "<div>" + monsters[mon].name + " (Lvl: " + monsters[mon].difficulty + ") </div>";
+        let content = "<div>" + this.monsters[mon].name + " (Lvl: " + this.monsters[mon].difficulty + ") </div>";
         this.addInfoWindow(monster_marker, content);
 
         let self = this;
