@@ -23,7 +23,6 @@ import { MonsterService } from './monsters.service';
       </ion-avatar>
       <h2>{{monster.name}}</h2>
       <p>{{monster.difficulty}}</p>
-      <button ion-button (click)="catchMonster({{monster.id}})">Catch Monster</button>
     </ion-item>
   </ion-list>
 </ion-content>
@@ -44,8 +43,11 @@ export class ModalContentPage {
     this.monsters = this.monsterService.getMonsters();
 
     
-
-    this.monster = this.monsters[this.params.get('monsterId')];
+    var m_id = 0;
+    if(this.params.get('monsterId')) {
+      m_id = this.params.get('monsterId');
+    }
+    this.monster = this.monsters[m_id];
   }
 
   dismiss() {

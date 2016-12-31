@@ -3,6 +3,7 @@
     <ion-title>
       PaleoGo: Florissant
     </ion-title>
+   
     <ion-buttons end>
       <button ion-button (click)="bugBox()"><ion-icon name="cube"></ion-icon><span class="btn-text">Bug Box</span></button>
     </ion-buttons>
@@ -12,3 +13,28 @@
 <ion-content padding>
   <div #map id="map"></div> 
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col text-center>
+        <button ion-button>
+          <ion-icon name="compass"><span class="btn-text">Find Specimens</span></ion-icon>
+        </button>
+      </ion-col>
+
+      <ion-col text-center>
+        <button ion-button>
+          <ion-icon name="settings"><span class="btn-text">Settings</span></ion-icon>
+        </button>
+      </ion-col>
+
+      <ion-col text-center>
+        <button ion-button>
+          <ion-icon name="information-circle"><span class="btn-text">About</span></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+
+</ion-footer>
