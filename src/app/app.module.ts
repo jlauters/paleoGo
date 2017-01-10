@@ -2,6 +2,11 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { TabsPage } from '../pages/tabs/tabs';
+import { ProfilePage } from '../pages/profile/profile';
+import { SettingsPage } from '../pages/settings/settings';
+import { AboutPage } from '../pages/about/about';
+import { CreditsPage } from '../pages/credits/credits';
 import { ModalContentPage } from '../pages/home/modal-detail.component';
 import { ModalBugBox } from '../pages/home/modal-bugbox.component';
 
@@ -9,6 +14,11 @@ import { ModalBugBox } from '../pages/home/modal-bugbox.component';
   declarations: [
     MyApp,
     HomePage,
+    TabsPage,
+    CreditsPage,
+    ProfilePage,
+    AboutPage,
+    SettingsPage,
     ModalContentPage,
     ModalBugBox
   ],
@@ -19,6 +29,11 @@ import { ModalBugBox } from '../pages/home/modal-bugbox.component';
   entryComponents: [
     MyApp,
     HomePage,
+    TabsPage,
+    CreditsPage,
+    ProfilePage,
+    AboutPage,
+    SettingsPage,
     ModalContentPage,
     ModalBugBox
   ],

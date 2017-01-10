@@ -1,5 +1,5 @@
 import { Component, Input,  ViewChild, ElementRef } from '@angular/core';
-import { NavController, ModalController, Platform, NavParams, ViewController, LoadingController } from 'ionic-angular';
+import { NavController, MenuController, ModalController, Platform, NavParams, ViewController, LoadingController } from 'ionic-angular';
 import { Geolocation } from 'ionic-native';
 import { MonsterService } from './monsters.service';
 import { ModalContentPage } from './modal-detail.component';
@@ -19,7 +19,9 @@ export class HomePage {
   map: any;
   monsters: any;
 
-  constructor(public modalCtrl: ModalController, public loadingCtrl: LoadingController, private monsterService: MonsterService) { }
+  constructor(public modalCtrl: ModalController, public loadingCtrl: LoadingController, private monsterService: MonsterService, menu: MenuController) { 
+    menu.enable(true);
+  }
 
   ionViewDidLoad() {
     this.loadMap();
