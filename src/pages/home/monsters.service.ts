@@ -5,6 +5,7 @@ import { MONSTERS } from './mock-monsters';
 
 @Injectable()
 export class MonsterService {
+
   getMonsters(): Monster[] {
     return MONSTERS
   }

@@ -9,6 +9,7 @@ import { AboutPage } from '../pages/about/about';
 import { CreditsPage } from '../pages/credits/credits';
 import { ModalContentPage } from '../pages/home/modal-detail.component';
 import { ModalBugBox } from '../pages/home/modal-bugbox.component';
+//import { MonsterService } from '../pages/home/monsters.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { ModalBugBox } from '../pages/home/modal-bugbox.component';
     AboutPage,
     SettingsPage,
     ModalContentPage,
-    ModalBugBox
+    ModalBugBox,
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -35,7 +36,7 @@ import { ModalBugBox } from '../pages/home/modal-bugbox.component';
     AboutPage,
     SettingsPage,
     ModalContentPage,
-    ModalBugBox
+    ModalBugBox,
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
