@@ -11,6 +11,7 @@
 
 <ion-content>
   <ion-list>
+
     <ion-item>
       <ion-avatar item-left>
         <img src="{{monster.icon}}">
@@ -18,5 +19,9 @@
       <h2>{{monster.name}}</h2>
       <p>{{monster.difficulty}}</p>
     </ion-item>
+
   </ion-list>
+
+  <img id="hammer-img" src="assets/hammer.svg" on-drag="onDrag()" on-tap="onTap('hammer-img')">
+
 </ion-content>

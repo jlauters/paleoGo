@@ -28,6 +28,23 @@ export class ModalContentPage {
     this.monster = this.monsters[m_id];
   }
 
+  onDrag() {
+    console.log('Hammer was dragged');
+  }
+
+  // For Dev Testing
+  onTap(elm) {
+    console.log("Hammer was tapped");
+ 
+    // rotates hammer
+    var hammer = document.getElementById(elm);
+    hammer.className += " rotate";
+
+    // throws hammer
+    hammer.className += " throw";
+
+  }
+
   dismiss() {
     this.viewCtrl.dismiss();
   }
