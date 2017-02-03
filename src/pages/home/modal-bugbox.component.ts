@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import { NavController, ModalController, Platform, NavParams, ViewController } from 'ionic-angular';
+import { SpecimenDetailPage } from './specimen-detail.component'
 
 @Component({
   template: `
@@ -18,7 +19,7 @@ import { NavController, ModalController, Platform, NavParams, ViewController } f
   <ion-grid>
     <ion-row>
       <ion-col width-25>
-        <ion-icon name="bug"></ion-icon>
+        <ion-icon name="bug" (click)="specimenDetail()"></ion-icon>
         <h2> ??? </h2>
       </ion-col>
 
@@ -100,6 +101,7 @@ export class ModalBugBox {
   constructor(
     public platform: Platform,
     public params: NavParams,
+    public navCtrl: NavController,
     public viewCtrl: ViewController
   ) {
 
@@ -131,6 +133,11 @@ export class ModalBugBox {
     ];
 
     this.monsters = monsters;
+  }
+
+  specimenDetail() {
+    console.log('show specimen detail template');
+    this.navCtrl.push(SpecimenDetailPage);
   }
 
   dismiss() {

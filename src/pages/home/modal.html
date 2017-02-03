@@ -9,19 +9,27 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
+<ion-content padding text-center>
 
-    <ion-item>
-      <ion-avatar item-left>
-        <img src="{{monster.icon}}">
-      </ion-avatar>
-      <h2>{{monster.name}}</h2>
-      <p>{{monster.difficulty}}</p>
-    </ion-item>
+  <div id="catch-screen">
+  <h2>{{monster.name}}</h2>
+  <img src="{{monster.icon}}">
 
-  </ion-list>
 
   <img id="hammer-img" src="assets/hammer.svg" on-drag="onDrag()" on-tap="onTap('hammer-img')">
+  </div>
+
+  <div id="caught-screen">
+  
+    <h2>Congrats you caught {{monster.name}}</h2>
+    <img src="{{monster.icon}}">
+
+    <button ion-button (click)="dismiss()"><ion-icon name="close"></ion-icon><span class="btn-text">Cancel</span></button>
+
+  </div>
+
+
+
+
 
 </ion-content>

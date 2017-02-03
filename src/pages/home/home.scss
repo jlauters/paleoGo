@@ -16,6 +16,8 @@
   #hammer-img { 
     height: 80px; 
     width: 80px; 
+    position: absolute;
+    bottom: 5px;
 
     transform: rotate(180deg);
     -moz-transform: rotate(180deg);

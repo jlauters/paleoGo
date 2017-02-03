@@ -34,18 +34,19 @@ export class ModalContentPage {
 
   // For Dev Testing
   onTap(elm) {
-    console.log("Hammer was tapped");
- 
-    // rotates hammer
+    
+    // throws and rotates hammer
     var hammer = document.getElementById(elm);
     hammer.className += " rotate";
-
-    // throws hammer
     hammer.className += " throw";
+
+    // Simple
+    this.monsterService.catchMonster(this.monster.id); 
 
   }
 
   dismiss() {
+    //this.homeCtrl.updateMap();
     this.viewCtrl.dismiss();
   }
   
