@@ -3,14 +3,20 @@ import { Monster } from './monsters';
 export const MONSTERS: Monster[] = [
       {
         id: 1,
-        name: 'Cicada',
+        name: 'Platypedia primigenia',
         icon: 'http://phylopic.org/assets/images/submissions/885b9069-c269-4ea6-b558-4c7382a1aa2e.64.png',
         detail_img: 'assets/Cicada_INV.1887.jpg',
         order: 'Hemiptera',
         family: 'Cicadidae',
         sci_name: 'Cicadidae',
-        notes: '',
-        description: 'Specimen from the Frank Hasbrouck Insect Collection at Arizona State University',
+        notes: 'Specimen for images: NHM.IN.19232 (INV 1887) and UCM.4559 (INV.5630), part and counterpart of a fossil' +
+'identified by Cockerell but unpublished. Alternate specimen: part and counterpart of teh holotype, YPM.IP.26165 (INV 1127),' +
+'See photos at http://planning.nps.gov/flfo/tax3_Detail.cfm?ID=247875079',
+        description: 'This extinct species is most closely related to Putnam\'s Cicada (Platypedia putnami), the commonest species of' +
+'cicada found in Colorado today. this living species often associates with Mountain Mahogany (Cercocarpus), which has been found as fossils at' +
+'florissant. Perhaps Mountain Mahogany provided habitat for fossil cicadas like it does for living ones. Cicada larvae feed on roots' +
+'underground for several years while they mature (17 years in one species), making cicadas some of the longest lived insects on earth!' +
+'After emerging from the ground as adults, females find males by the buzzing "song" that is specific to each species. ',
         difficulty: 1,
         lat: 41.654085,
         lng: -91.525087,

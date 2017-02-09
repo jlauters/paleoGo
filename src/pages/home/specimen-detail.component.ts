@@ -15,6 +15,7 @@ export class SpecimenDetailPage {
     public platform: Platform,
     public params: NavParams,
     public viewCtrl: ViewController,
+    public navCtrl: NavController,
     private monsterService: MonsterService
   ) {
 
@@ -29,8 +30,10 @@ export class SpecimenDetailPage {
   }
 
   dismiss() {
-    //this.homeCtrl.updateMap();
     this.viewCtrl.dismiss();
   }
   
+  goBack() {
+    this.navCtrl.pop();
+  }
 }

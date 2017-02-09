@@ -1,10 +1,11 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Catch: {{monster.name}}
+      Bug Box: {{monster.name}}
     </ion-title>
     <ion-buttons end>
-      <button ion-button (click)="dismiss()"><ion-icon name="close"></ion-icon><span class="btn-text">Cancel</span></button>
+      <button ion-button (click)="goBack()"><ion-icon name="arrow-back"></ion-icon><span class="btn-text">Back</span></button>
+      <button ion-button (click)="dismiss()"><ion-icon name="close"></ion-icon><span class="btn-text">Close</span></button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -16,17 +17,33 @@
     <img height="300" width="auto"src="{{monster.detail_img}}">
 
     <div id="detail-content">
-      <h2>{{monster.description}}</h2>
+      <h2>{{monster.name}} ( {{monster.sci_name}} )</h2>
     
-      <div padding text-left>
-        <h3>{{monster.name}}</h3>
-        <p>Order: {{monster.order}}</p>
-        <p>Family: {{monster.family}}</p>
-        <p>Scientific Name: {{monster.sci_name}}</p>
+      <div padding >
 
-        <p>Notes: {{monster.notes}}</p>
+        <ion-row>
+          <ion-col text-center>
+            <ion-badge><span class="detail-button">{{monster.order}}</span></ion-badge>
+            <p class="detail-label">Order</p>
+          </ion-col>
+ 
+          <ion-col text-center>
+            <ion-badge><span class="detail-button">{{monster.family}}</span></ion-badge>
+            <p class="detail-label">Family</p>
+          </ion-col>
+ 
+          <ion-col text-center>
+            <ion-badge><span class="detail-button">{{monster.sci_name}}</span></ion-badge>
+            <p class="detail-label">Scientific Name</p>
+          </ion-col>
+        </ion-row>
 
-        <p>Description: {{monster.description}}</p>
+        <div padding >
+          <p>Description: {{monster.description}}</p>
+          <hr>
+          <p>Notes: {{monster.notes}}</p>
+        </div>
+
       </div>
 
       <div>links row to come</div>
