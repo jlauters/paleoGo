@@ -19,7 +19,11 @@ export class HomePage {
   map: any;
   monsters: any;
 
-  constructor(public modalCtrl: ModalController, public loadingCtrl: LoadingController, private monsterService: MonsterService, menu: MenuController) { 
+  constructor( public modalCtrl: ModalController,
+               public loadingCtrl: LoadingController,
+               public navCtrl: NavController,
+               private monsterService: MonsterService,
+               menu: MenuController) { 
     menu.enable(true);
   }
 
@@ -33,8 +37,9 @@ export class HomePage {
       let modal = this.modalCtrl.create(ModalBugBox); 
       modal.present();
     } else {
-      let modal = this.modalCtrl.create(ModalContentPage, {monsterId: monsterId});
-      modal.present();
+      //let modal = this.modalCtrl.create(ModalContentPage, {monsterId: monsterId});
+      //modal.present();
+      this.navCtrl.push(ModalContentPage, { monsterId: monsterId});
     }
   }
 

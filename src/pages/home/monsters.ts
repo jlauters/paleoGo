@@ -2,6 +2,7 @@ export class Monster {
   id: number;
   name: string;
   icon: string;
+  md_icon: string;
   detail_img: string;
   order: string;
   family: string;

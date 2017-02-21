@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+     Bug Box 
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="dismiss()"><ion-icon name="close"></ion-icon><span class="btn-text">Cancel</span></button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list ng-controller="ModalBugBox">
+    <ion-item *ngFor="let m of monsters" (click)="specimenDetail()">
+        <img src="{{m.icon}}"/>
+        <h2>{{m.name}}</h2>
+        <p>Found: {{m.found}}</p>
+    </ion-item>
+  </ion-list>
+  
+</ion-content>

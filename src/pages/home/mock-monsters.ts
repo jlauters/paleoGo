@@ -5,6 +5,7 @@ export const MONSTERS: Monster[] = [
         id: 1,
         name: 'Platypedia primigenia',
         icon: 'http://phylopic.org/assets/images/submissions/885b9069-c269-4ea6-b558-4c7382a1aa2e.64.png',
+        md_icon: 'http://phylopic.org/assets/images/submissions/885b9069-c269-4ea6-b558-4c7382a1aa2e.128.png',
         detail_img: 'assets/Cicada_INV.1887.jpg',
         order: 'Hemiptera',
         family: 'Cicadidae',
@@ -20,12 +21,13 @@ export const MONSTERS: Monster[] = [
         difficulty: 1,
         lat: 41.654085,
         lng: -91.525087,
-        found: false
+        found: true
       },
       {
         id: 2,
         name: 'Sphecidae',
         icon: 'http://phylopic.org/assets/images/submissions/2bf4339d-d60b-4e6c-912c-8bba1ec8854a.64.png',
+        md_icon: 'http://phylopic.org/assets/images/submissions/2bf4339d-d60b-4e6c-912c-8bba1ec8854a.128.png',
         detail_img: 'assets/Sphecidae_UCM.4499.png',
         order: 'Hymenoptera',
         family: 'Sphecidae',
@@ -41,6 +43,7 @@ export const MONSTERS: Monster[] = [
         id: 3,
         name: 'Spoonwing',
         icon: 'http://phylopic.org/assets/images/submissions/3010e744-6b06-4022-9ce6-354db93e99fe.64.png',
+        md_icon: 'http://phylopic.org/assets/images/submissions/3010e744-6b06-4022-9ce6-354db93e99fe.128.png',
         detail_img: 'assets/Spoonwing_INV.1640.jpg',
         order: 'Neuroptera',
         family: 'Nemopteridae',

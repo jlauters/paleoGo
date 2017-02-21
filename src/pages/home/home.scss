@@ -16,12 +16,12 @@
   #hammer-img { 
     height: 80px; 
     width: 80px; 
-    position: absolute;
-    bottom: 5px;
+    //position: absolute;
+    //bottom: 5px;
 
-    transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
+    //transform: rotate(180deg);
+    //-moz-transform: rotate(180deg);
+    //-webkit-transform: rotate(180deg);
 
   }
   #hammer-img.rotate {
@@ -61,5 +61,16 @@
   .detail-button { font-size: 22px; font-weight: lighter; line-height: 1.2em; }
   .detail-label { font-size: 20px; font-weight: lighter; }
 
+  .specimen-caught { background-color: #ccffcc; }
+  .specimen-uncaught { background-color: #cecece; }
 
+  .canvasStyle {
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border: 1px solid #cecece;
+  }
 }
+
