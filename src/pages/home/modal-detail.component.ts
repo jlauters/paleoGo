@@ -55,8 +55,6 @@ export class ModalContentPage {
     var top  = obj_1.y, bottom = obj_1.y + obj_1.h;
        
     if(right >= obj_2.x && left <= obj_2.x && bottom >= obj_2.y && top <= obj_2.y) {
- 
-      console.log( "COLLISION!!!");
       collide = true;
     }    
 
@@ -81,7 +79,8 @@ export class ModalContentPage {
       y: 445.5,
       h: 40,
       w: 40,
-      speed: 2,
+      speed: 0,
+      angle: 15,
     
       ox: 140,
       oy: 445.5,
@@ -185,39 +184,26 @@ export class ModalContentPage {
     // Check if Hammer and Canvas boundary collide
     var checkBoundary = function(hammer) {
 
-      console.log('in checkBoundary');
-
       // Right Side
       if(hammer.x >= ( ctx.canvas.width - hammer.w )) {
-        console.log('hammer hit right side');
         hammer.x = ( ctx.canvas.width - hammer.w );
         hammer.vector.normX = -hammer.vector.normX;
       } else if(hammer.x <= hammer.w) {
         // Left Side
-
-        console.log('hammer hit left side');
 
         hammer.x = hammer.w;
         hammer.vector.normX = -hammer.vector.normX;
       } else if(hammer.y >= ( ctx.canvas.height - hammer.h )) {
         // Bottom Side
 
-        console.log('hammer hit bottom side');
-
         hammer.y = ( ctx.canvas.height - hammer.h );
         hammer.vector.normY = -hammer.vector.normY
       } else if(hammer.y <= hammer.h) {
-        // Top Side
 
-
-        // -- RESET Hammer
-        console.log('hammer went out the top');
-
+        // Hammer went out the top - Reset Hammer
         hammer.x = 140;
         hammer.y = 445.5;
         hammer.speed = 0;
-
-
      }
 
     }
@@ -230,6 +216,7 @@ export class ModalContentPage {
       var breakout = false;
       var direction = 'inc';
       var ydir = 'inc';
+      var TO_RADIANS = Math.PI/180;
 
       return function() {
         rects = Array()
@@ -240,14 +227,26 @@ export class ModalContentPage {
         rects.push({x: monster.x, y: monster.y, w: monster.img.width, h: monster.img.height});
 
         if(hammer.speed) {
+          ctx.save();
+
           hammer.x += hammer.vector.normX * hammer.speed;
           hammer.y += -1 * (hammer.vector.normY * hammer.speed);
+
+          ctx.translate(hammer.x, hammer.y);
+          ctx.rotate( hammer.angle * TO_RADIANS);
+          hammer.angle = hammer.angle + 15;
         }
 
         checkBoundary(hammer);
 
         // paint hammer
-        ctx.drawImage(hammer_img, hammer.x, hammer.y, hammer.h, hammer.w);
+        if(hammer.speed) {
+          ctx.drawImage(hammer_img, -(hammer.w/2), -(hammer.w/2), hammer.h, hammer.w);
+          ctx.restore();
+        } else {
+          ctx.drawImage(hammer_img, hammer.x, hammer.y, hammer.h, hammer.w);
+          ctx.restore();
+        }
         rects.push({x: hammer.x, y: hammer.y, h: hammer.h, w: hammer.w});
 
         if(rects.length > 1)  {
