@@ -55,5 +55,4 @@ export const MONSTERS: Monster[] = [
         lng: -91.523265,
         found: false
       }
-    ];
-
+];

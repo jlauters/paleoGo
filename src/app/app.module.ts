@@ -10,6 +10,8 @@ import { CreditsPage } from '../pages/credits/credits';
 import { ModalContentPage } from '../pages/home/modal-detail.component';
 import { ModalBugBox } from '../pages/home/modal-bugbox.component';
 import { SpecimenDetailPage } from '../pages/home/specimen-detail.component';
+import { PrivacyPage } from '../pages/privacy/privacy';
+import { SuccessPage } from '../pages/home/success.component';
 //import { MonsterService } from '../pages/home/monsters.service';
 
 @NgModule({
@@ -23,7 +25,9 @@ import { SpecimenDetailPage } from '../pages/home/specimen-detail.component';
     SettingsPage,
     ModalContentPage,
     ModalBugBox,
-    SpecimenDetailPage
+    SpecimenDetailPage,
+    PrivacyPage,
+    SuccessPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -40,6 +44,8 @@ import { SpecimenDetailPage } from '../pages/home/specimen-detail.component';
     ModalContentPage,
     ModalBugBox,
     SpecimenDetailPage,
+    PrivacyPage,
+    SuccessPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

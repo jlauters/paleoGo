@@ -8,6 +8,8 @@ import { SettingsPage } from '../pages/settings/settings';
 import { AboutPage } from '../pages/about/about';
 import { CreditsPage } from '../pages/credits/credits';
 import { ProfilePage } from '../pages/profile/profile';
+import { PrivacyPage } from '../pages/privacy/privacy';
+import { SuccessPage } from '../pages/home/success.component';
 
 
 @Component({
@@ -26,7 +28,8 @@ export class MyApp {
       { title: 'Settings', component: SettingsPage},
       { title: 'My Account', component: ProfilePage},
       { title: 'About', component: AboutPage},
-      { title: 'Credits', component: CreditsPage}
+      { title: 'Credits', component: CreditsPage},
+      { title: 'Privacy', component: PrivacyPage}
     ];   
     this.rootPage = TabsPage;
 

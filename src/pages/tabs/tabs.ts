@@ -6,6 +6,7 @@ import { ProfilePage } from '../profile/profile';
 import { SettingsPage } from '../settings/settings';
 import { AboutPage } from '../about/about';
 import { CreditsPage } from '../credits/credits';
+import { PrivacyPage } from '../privacy/privacy';
 
 /*
   Generated class for the Tabs page.
@@ -30,5 +31,5 @@ export class TabsPage {
   settings() { this.navCtrl.push(SettingsPage); }
   about() { this.navCtrl.push(AboutPage); }
   credits() { this.navCtrl.push(CreditsPage); }
-
+  privacy() { this.navCtrl.push(PrivacyPage); }
 }

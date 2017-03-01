@@ -12,6 +12,8 @@ export class MonsterService {
 
   catchMonster(monsterID) {
 
+     console.log(" in Monster Service catchMonster ");
+
      let lookup = {};
      let monsters = this.getMonsters();
      
@@ -22,5 +24,7 @@ export class MonsterService {
 
      let monster = lookup[monsterID];
      monster.found = true;
+
+     return true;
   }
 }

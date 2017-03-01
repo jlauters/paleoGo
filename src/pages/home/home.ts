@@ -39,6 +39,8 @@ export class HomePage {
     } else {
       //let modal = this.modalCtrl.create(ModalContentPage, {monsterId: monsterId});
       //modal.present();
+      console.log("pushing monsterId: " + monsterId + " to modalContent Page");
+
       this.navCtrl.push(ModalContentPage, { monsterId: monsterId});
     }
   }
@@ -87,6 +89,7 @@ export class HomePage {
             map: this.map,
             position: mon_latLng,
             monster_idx: mon,
+            monster_id: this.monsters[mon].id,
             icon: this.monsters[mon].icon
           });
 
@@ -95,7 +98,11 @@ export class HomePage {
 
           let self = this;
           monster_marker.addListener('click', function() {
-            self.catchMonster(monster_marker.monster_idx);  
+
+            console.log(" Adding click listener for: ");
+            console.log("id: " + monster_marker.monster_id);
+
+            self.catchMonster(monster_marker.monster_id);  
           })
         }
 
@@ -164,8 +171,8 @@ export class HomePage {
 
   }
 
-  catchMonster(monster_idx) {
-    this.openModal(monster_idx); 
+  catchMonster(monster_id) {
+    this.openModal(monster_id); 
   }
 
   bugBox() {
